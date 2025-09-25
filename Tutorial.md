@@ -4,14 +4,6 @@ OmicsNetWork is a comprehensive toolkit specifically designed for multi-omics da
 
 Its core advantage lies in integrating various analytical methods such as **condition-specific correlation network analysis**, **differential network comparison**, and **multiple network integration**, and provides rich visualization functions, enabling researchers to intuitively explore and understand the hidden biological patterns and mechanisms in omics data.
 
-## Function Introduction
-
-**Table of Contents**
-  
-  [TOCM]
-
-[TOC]
-
 ## Usage Conditions
 * R version >= 3.4.3
 
