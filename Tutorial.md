@@ -1,18 +1,12 @@
----
-title: "OmicsNetWork: Multi-Omics Data Network Analysis R Package"
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    toc_depth: 3
-    number_sections: true
----
-
 # OmicsNetWork: Multi-Omics Data Network Analysis R Package
 
 OmicsNetWork is a comprehensive toolkit specifically designed for multi-omics data network analysis, aimed at helping researchers identify key functional modules and regulatory networks from complex biological data. This package provides a one-stop solution from **data filtering**, **molecular interaction network construction**, **condition-specific correlation network construction**, **correlation stability assessment**, **multiple network integration**, **correlation difference testing**, to **functional enrichment analysis**, with particular emphasis on network structure stability and biological significance mining.
 
 Its core advantage lies in integrating various analytical methods such as **condition-specific correlation network analysis**, **differential network comparison**, and **multiple network integration**, and provides rich visualization functions, enabling researchers to intuitively explore and understand the hidden biological patterns and mechanisms in omics data.
+
+## Table of Contents
+
+[TOC]
 
 ## Usage Conditions
 * R version >= 3.4.3
