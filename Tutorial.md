@@ -91,7 +91,7 @@ cluster_anno_plot1<-network_show(Network=subnet_result,plot_type="overall_cluste
 cluster_anno_plot1@plot
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/pipline_save/1/Network_Clustering_T-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/pipline_save/1/Network_Clustering_T-1.png)
 
 ```R
 # View subnetwork 1 (node size represents betweenness)
@@ -104,7 +104,7 @@ subnet_betweennessplot1@plot
 
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/pipline_save/1/Betweenness_subnet_1_T-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/pipline_save/1/Betweenness_subnet_1_T-1.png)
 
 ```R
 # Topological analysis of subnetwork 1
@@ -198,7 +198,7 @@ diff_subnet_top_plot<-network_show(Network=diffnet_result,
 diff_subnet_top_plot@plot
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/pipline_save/2/Differential_subnetwork_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/pipline_save/2/Differential_subnetwork_T-vs-N-1.png)
 
 ### 1.3 Stable Multiplex Network Analysis for Experimental vs Control Groups - multiplex_network Function
 **Function Overview:**
@@ -281,7 +281,7 @@ diff_multisubnet_top_plot<-network_show(Network=multinet_result,
 
 diff_multisubnet_top_plot@plot
 ```
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/pipline_save/3/Differential_multiplex_network_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/pipline_save/3/Differential_multiplex_network_T-vs-N-1.png)
 
 ## II. Independent Analysis Module Functions
 ### 2.1 Stability Analysis - run_corStability Function
@@ -322,7 +322,7 @@ StableNetwork <- run_corStability(
 network_show(Network = StableNetwork, plot_type = 'overall_network', show_node_legend = TRUE)
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_corStability_T-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_corStability_T-1.png)
 
 ### 2.2 Subnetwork Clustering Analysis - run_cluster Function
 **Function Overview:**
@@ -352,7 +352,7 @@ subNetwork_results <- run_cluster(nodes = nodes, edges = edges, group_name = 'T'
 network_show(Network = subNetwork_results, plot_type = 'overall_cluster_network', show_node_legend = TRUE)
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_cluster_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_cluster_T-vs-N-1.png)
 
 ```R
 # Subnetwork display: using subnetwork 1 as an example
@@ -368,7 +368,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_cluster_T-vs-N_subnet_1-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_cluster_T-vs-N_subnet_1-1.png)
 
 ### 2.3 Molecular Interaction Network Analysis
 
@@ -416,7 +416,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_interaction_table_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_interaction_table_T-vs-N-1.png)
 
 #### 2.3.2 General Molecular Interaction Network Construction - run_interaction_network Function
 
@@ -451,7 +451,7 @@ network_show(
   show_node_name = TRUE
 )
 ```
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_interaction_network_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_interaction_network_T-vs-N-1.png)
 
 ### 2.4 Condition-Specific Correlation Network with Consistent Node Layout - run_conditional_network Function
 
@@ -502,7 +502,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_conditional_network_T-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_conditional_network_T-1.png)
 
 ```R
 # Control group
@@ -514,7 +514,7 @@ network_show(
   node_colortype = 'Normalized mean'
 )
 ```
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_conditional_network_N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_conditional_network_N-1.png)
 
 ### 2.5 Condition-Specific Multiplex Network with Consistent Node Layout - run_conditional_multiplexnetwork Function
 
@@ -553,7 +553,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_conditional_multiplexnetwork_T-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_conditional_multiplexnetwork_T-1.png)
 
 ```R
 # Control group
@@ -566,7 +566,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_conditional_multiplexnetwork_N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_conditional_multiplexnetwork_N-1.png)
 
 ### 2.6 Differential Network Analysis - run_diff_network Function
 
@@ -608,7 +608,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_diff_network_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_diff_network_T-vs-N-1.png)
 
 #### 2.6.2 Perform Differential Network Analysis using Multiplex Network Object
 
@@ -636,7 +636,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_diff_multinetwork_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_diff_multinetwork_T-vs-N-1.png)
 
 ### 2.7 Network Node Enrichment Analysis
 #### 2.7.1 Single Group Network Enrichment Analysis - run_enrichment Function
@@ -682,7 +682,7 @@ Enrichment <- run_enrichment(
 network_show(Network = Enrichment, plot_type = 'enrichment')
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_enrichment_T-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_enrichment_T-1.png)
 
 ##### 2.7.1.2 Subnetwork Enrichment Analysis
 
@@ -711,7 +711,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_enrichment_subnet_1_T-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_enrichment_subnet_1_T-1.png)
 
 #### 2.7.2 Differential Overall Network Enrichment Analysis (Applicable to Multiplex Overall Network) - run_diff_enrichment Function
 
@@ -745,7 +745,7 @@ Enrichment <- run_diff_enrichment(
 network_show(Network = Enrichment, plot_type = 'enrichment')
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_diff_enrichment_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_diff_enrichment_T-vs-N-1.png)
 
 #### 2.7.3 Differential Subnetwork Enrichment Analysis (Applicable to Multiplex Subnetworks) - run_diffsubnet_enrichment Function
 
@@ -782,7 +782,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/TTutorial_plot/other/run_diff_enrichment_subnet_1_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_diff_enrichment_subnet_1_T-vs-N-1.png)
 
 # III. Plotting Functions
 
