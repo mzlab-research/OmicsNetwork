@@ -190,7 +190,7 @@ diff_subnet_top_plot<-network_show(Network=diffnet_result,
 diff_subnet_top_plot@plot
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/pipline_save/2/Differential_subnetwork_T-vs-N-1.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/pipline_save/2/Differential_subnetwork_1_T-vs-N-1.png)
 
 ### 1.3 Stable Multiplex Network Analysis for Experimental vs Control Groups - multiplex_network Function
 **Function Overview:**
