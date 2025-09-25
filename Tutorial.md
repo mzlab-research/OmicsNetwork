@@ -116,13 +116,13 @@ subnet_centrality@plot$subnet_1
   
 This function compares two groups of samples (e.g., treatment T vs control N) and performs the following analyses:
   
-**Data Preparation:** Check column names, filter molecular quantitative values and sample table for the two groups based on the comparison scheme (T:N).
-**Differential Analysis:** Identify molecules with significant expression differences between the two groups, filtering differentially expressed molecules based on fold change (FC) and statistical significance (p-value/q-value) thresholds.
-**Conditional Network Construction:** Build correlation networks for the differential molecules separately for the experimental and control groups, calculating inter-molecular associations using the specified correlation method (e.g., spearman).
-**Network Stability Assessment:** Evaluate the connection stability of the two group networks through Bootstrap resampling, identifying network connections that stably exist across different resamplings.
-**Differential Network Analysis:** Systematically compare the two group networks, identifying different types of differential connections: significantly enhanced connections, significantly weakened connections, and group-specific connections (connections present only in one group).
-**Differential Subnetwork Identification:** Extract subnetwork modules from the differential network, partitioning modules based on connection tightness.
-**Enrichment Analysis:** Perform functional enrichment analysis separately for the overall differential network and for the molecular lists involved in each correlation difference type (enhanced/weakened/specific, etc.) within the differential subnetworks.
+* **Data Preparation:** Check column names, filter molecular quantitative values and sample table for the two groups based on the comparison scheme (T:N).
+* **Differential Analysis:** Identify molecules with significant expression differences between the two groups, filtering differentially expressed molecules based on fold change (FC) and statistical significance (p-value/q-value) thresholds.
+* **Conditional Network Construction:** Build correlation networks for the differential molecules separately for the experimental and control groups, calculating inter-molecular associations using the specified correlation method (e.g., spearman).
+* **Network Stability Assessment:** Evaluate the connection stability of the two group networks through Bootstrap resampling, identifying network connections that stably exist across different resamplings.
+* **Differential Network Analysis:** Systematically compare the two group networks, identifying different types of differential connections: significantly enhanced connections, significantly weakened connections, and group-specific connections (connections present only in one group).
+* **Differential Subnetwork Identification:** Extract subnetwork modules from the differential network, partitioning modules based on connection tightness.
+* **Enrichment Analysis:** Perform functional enrichment analysis separately for the overall differential network and for the molecular lists involved in each correlation difference type (enhanced/weakened/specific, etc.) within the differential subnetworks.
 
 **Main Parameter Description:**
   
@@ -190,14 +190,14 @@ diff_subnet_top_plot@plot
   
 This function integrates molecular interaction information with expression correlation to perform multiplex network analysis:
   
-**Data Preparation:** Check column names, filter molecular quantitative values and sample table for the two groups based on the comparison scheme (T:N).
-**Differential Analysis:** Identify molecules with significant expression differences between the two groups, filtering differentially expressed molecules based on fold change (FC) and statistical significance (p-value/q-value) thresholds.
-**Molecular Interaction Network Construction:** Build a differential protein-protein interaction network based on the STRING database; also supports direct import of other types of molecular interaction tables.
-**Conditional Correlation Networks:** Build correlation networks for the differential molecules separately for the experimental and control groups, calculating inter-molecular associations using the specified correlation method (e.g., spearman).
-**Stability Assessment:** Evaluate the connection stability of the two group networks through Bootstrap resampling, identifying network connections that stably exist across different resamplings.
-**Network Integration:** Integrate the interaction network with the correlation networks to form a multiplex network.
-**Differential Multiplex Network Analysis:** Identify differences in the multiplex network between the experimental and control groups.
-**Functional Analysis:** Perform functional enrichment analysis separately for the overall differential multiplex network and for the molecular lists involved in each correlation difference type (enhanced/weakened/specific, etc.) within the differential subnetworks.
+* **Data Preparation:** Check column names, filter molecular quantitative values and sample table for the two groups based on the comparison scheme (T:N).
+* **Differential Analysis:** Identify molecules with significant expression differences between the two groups, filtering differentially expressed molecules based on fold change (FC) and statistical significance (p-value/q-value) thresholds.
+* **Molecular Interaction Network Construction:** Build a differential protein-protein interaction network based on the STRING database; also supports direct import of other types of molecular interaction tables.
+* **Conditional Correlation Networks:** Build correlation networks for the differential molecules separately for the experimental and control groups, calculating inter-molecular associations using the specified correlation method (e.g., spearman).
+* **Stability Assessment:** Evaluate the connection stability of the two group networks through Bootstrap resampling, identifying network connections that stably exist across different resamplings.
+* **Network Integration:** Integrate the interaction network with the correlation networks to form a multiplex network.
+* **Differential Multiplex Network Analysis:** Identify differences in the multiplex network between the experimental and control groups.
+* **Functional Analysis:** Perform functional enrichment analysis separately for the overall differential multiplex network and for the molecular lists involved in each correlation difference type (enhanced/weakened/specific, etc.) within the differential subnetworks.
 
 **Main Parameter Description:**
   
@@ -557,7 +557,7 @@ network_show(
 
 **Usage Example:**
   
-  #### 2.6.1 Perform Differential Network Analysis using Conditional Network Object
+#### 2.6.1 Perform Differential Network Analysis using Conditional Network Object
   
 ```R
 # Create example network data
@@ -613,6 +613,7 @@ network_show(
 ![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/other/run_diff_multinetwork_T-vs-N-1.png)
 
 ### 2.7 Network Node Enrichment Analysis
+
 #### 2.7.1 Single Group Network Enrichment Analysis - run_enrichment Function
 
 **Function Overview:**
@@ -638,9 +639,9 @@ network_show(
 
 **Usage Example:**
   
-  ##### 2.7.1.1 Overall Network Enrichment Analysis
+##### 2.7.1.1 Overall Network Enrichment Analysis
   
-  ```R
+```R
 # Create example network data
 data("stable_subnetwork_result")
 subnetworks_nodes <- stable_subnetwork_result@StableNetwork@bootnet_result_filter@bootnet_node
