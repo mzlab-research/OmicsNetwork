@@ -22,21 +22,16 @@ Stable Subnetwork Analysis is a function that executes a complete stable subnetw
   
   This function performs a complete stable subnetwork analysis pipeline for a specific experimental group (e.g., treatment group 'T'), including the following analyses:
   
-  Data Preparation: Check column names, filter molecular quantitative values and sample table for the group (T) based on the group name.
-
+* **Data Preparation:** Check column names, filter molecular quantitative values and sample table for the group (T) based on the group name.
 * **Correlation Calculation:** Calculate inter-molecular associations using the specified correlation method (e.g., spearman). If there are more than 1000 molecules, select the top 1000 molecules by connectivity for subsequent analysis.
-
 * **Network Stability Assessment:** Evaluate network connection stability through Bootstrap resampling, identifying network connections that stably exist across different resamplings.
-
 * **Molecule Selection:** Filter important molecules based on correlation stability and significance indicators.
-
 * **Subnetwork Identification:** Extract subnetwork modules from the total network, partitioning modules based on connection tightness.
-
 * **Enrichment Analysis:** Perform functional enrichment analysis on the overall network and each subnetwork.
-
-**Main Parameter Description:**
   
-  - count_table: Molecular expression table, must contain a feature_ID column.
+**Main Parameter Description:**
+
+- count_table: Molecular expression table, must contain a feature_ID column.
 - samplelist: Sample information table, containing sample and group columns.
 - group_name: Analysis group name (e.g., 'T').
 - annotation_table: Node annotation information table (feature_ID, Class, KEGG.ID).
@@ -119,25 +114,19 @@ subnet_centrality@plot$subnet_1
 #### 1.2.1 Analysis Pipeline
 **Main Pipeline:**
   
-  This function compares two groups of samples (e.g., treatment T vs control N) and performs the following analyses:
+This function compares two groups of samples (e.g., treatment T vs control N) and performs the following analyses:
   
-  **Data Preparation:** Check column names, filter molecular quantitative values and sample table for the two groups based on the comparison scheme (T:N).
-
+**Data Preparation:** Check column names, filter molecular quantitative values and sample table for the two groups based on the comparison scheme (T:N).
 **Differential Analysis:** Identify molecules with significant expression differences between the two groups, filtering differentially expressed molecules based on fold change (FC) and statistical significance (p-value/q-value) thresholds.
-
 **Conditional Network Construction:** Build correlation networks for the differential molecules separately for the experimental and control groups, calculating inter-molecular associations using the specified correlation method (e.g., spearman).
-
 **Network Stability Assessment:** Evaluate the connection stability of the two group networks through Bootstrap resampling, identifying network connections that stably exist across different resamplings.
-
 **Differential Network Analysis:** Systematically compare the two group networks, identifying different types of differential connections: significantly enhanced connections, significantly weakened connections, and group-specific connections (connections present only in one group).
-
 **Differential Subnetwork Identification:** Extract subnetwork modules from the differential network, partitioning modules based on connection tightness.
-
 **Enrichment Analysis:** Perform functional enrichment analysis separately for the overall differential network and for the molecular lists involved in each correlation difference type (enhanced/weakened/specific, etc.) within the differential subnetworks.
 
 **Main Parameter Description:**
   
-  - count_table: Molecular expression table, must contain a feature_ID column.
+- count_table: Molecular expression table, must contain a feature_ID column.
 - samplelist: Sample information table, containing sample and group columns.
 - compare_group: Comparison group format (e.g., "T:N").
 - annotation_table: Node annotation information table (feature_ID, Class, KEGG.ID).
@@ -199,27 +188,20 @@ diff_subnet_top_plot@plot
 #### 1.3.1 Analysis Pipeline
 **Main Pipeline:**
   
-  This function integrates molecular interaction information with expression correlation to perform multiplex network analysis:
+This function integrates molecular interaction information with expression correlation to perform multiplex network analysis:
   
-  **Data Preparation:** Check column names, filter molecular quantitative values and sample table for the two groups based on the comparison scheme (T:N).
-
+**Data Preparation:** Check column names, filter molecular quantitative values and sample table for the two groups based on the comparison scheme (T:N).
 **Differential Analysis:** Identify molecules with significant expression differences between the two groups, filtering differentially expressed molecules based on fold change (FC) and statistical significance (p-value/q-value) thresholds.
-
 **Molecular Interaction Network Construction:** Build a differential protein-protein interaction network based on the STRING database; also supports direct import of other types of molecular interaction tables.
-
 **Conditional Correlation Networks:** Build correlation networks for the differential molecules separately for the experimental and control groups, calculating inter-molecular associations using the specified correlation method (e.g., spearman).
-
 **Stability Assessment:** Evaluate the connection stability of the two group networks through Bootstrap resampling, identifying network connections that stably exist across different resamplings.
-
 **Network Integration:** Integrate the interaction network with the correlation networks to form a multiplex network.
-
 **Differential Multiplex Network Analysis:** Identify differences in the multiplex network between the experimental and control groups.
-
 **Functional Analysis:** Perform functional enrichment analysis separately for the overall differential multiplex network and for the molecular lists involved in each correlation difference type (enhanced/weakened/specific, etc.) within the differential subnetworks.
 
 **Main Parameter Description:**
   
-  - count_table: Molecular expression table, must contain a feature_ID column.
+- count_table: Molecular expression table, must contain a feature_ID column.
 - quantitative_table: Quantitative data table for differential analysis; if not provided, count_table is used.
 - samplelist: Sample information table, containing sample and group columns.
 - compare_group: Comparison group format (e.g., "T:N").
@@ -282,7 +264,7 @@ diff_multisubnet_top_plot@plot
 
 **Main Parameter Description:**
   
-  - count_table: Feature expression table, must contain a feature_ID column.
+- count_table: Feature expression table, must contain a feature_ID column.
 - annotation_table: Node annotation information table (feature_ID, Class, KEGG.ID).
 - group_name: Analysis group name.
 - nBoots: Number of Bootstrap resampling iterations (default 50, set to 5 in the example for faster demonstration).
@@ -322,7 +304,7 @@ network_show(Network = StableNetwork, plot_type = 'overall_network', show_node_l
 
 **Main Parameter Description:**
   
-  - nodes: Node data frame, must contain "node" and "Class" columns.
+- nodes: Node data frame, must contain "node" and "Class" columns.
 - edges: Edge data frame, must contain "from", "to", "cor", and "p_adjust" columns.
 - group_name: Analysis group name.
 - clustersize: Maximum community size threshold (default 25).
@@ -330,7 +312,7 @@ network_show(Network = StableNetwork, plot_type = 'overall_network', show_node_l
 
 **Usage Example:**
   
-  ```R
+```R
 # Create example network data
 data("stable_subnetwork_result")
 nodes <- stable_subnetwork_result@StableNetwork@bootnet_result_filter@bootnet_node
@@ -371,7 +353,7 @@ network_show(
 
 **Main Parameter Description:**
   
-  - node_list: Target node list (gene IDs or symbols).
+- node_list: Target node list (gene IDs or symbols).
 - species: Species identifier (hsa: human, mmu: mouse, etc.).
 - score_threshold: STRING interaction score threshold (0-1000, default 600).
 - database_path: Local storage path for the STRING database.
@@ -417,7 +399,7 @@ network_show(
 
 **Main Parameter Description:**
   
-  - interaction_data: Interaction table, must contain feature1, feature2 columns; optionally score, relationship columns.
+- interaction_data: Interaction table, must contain feature1, feature2 columns; optionally score, relationship columns.
 - Diff_anno: Annotation table with differential information, must contain a Class column.
 - compare_group: Comparison group (format: "T:N").
 
@@ -452,7 +434,7 @@ network_show(
 
 **Main Parameter Description:**
   
-  - count_table: Molecular expression table, containing a feature_ID column.
+- count_table: Molecular expression table, containing a feature_ID column.
 - samplelist: Sample grouping information table, containing group and sample columns.
 - compare_group: Comparison group (format: "T:N").
 - Diff_anno: Differential analysis annotation table.
@@ -463,7 +445,7 @@ network_show(
 
 **Usage Example:**
   
-  ```R
+```R
 # Create example network data
 data("differential_network_result")
 count_table = differential_network_result@PreData@count_table
@@ -515,13 +497,13 @@ network_show(
 
 **Main Parameter Description:**
   
-  - Interaction_network: Molecular interaction network object, generated by the run_interaction_network function.
+- Interaction_network: Molecular interaction network object, generated by the run_interaction_network function.
 - Conditional_network: Condition-specific network object containing network data for experimental and control groups, generated by the run_conditional_network function.
 - compare_group: Comparison group (format: "T:N").
 
 **Usage Example:**
   
-  ```R
+```R
 # Create example network data
 data("multiplex_network_result")
 Interaction_network = multiplex_network_result@Interaction_network
@@ -567,7 +549,7 @@ network_show(
 
 **Main Parameter Description:**
   
-  - Conditional_network: Condition-specific network object containing network data for experimental and control groups, generated by the run_conditional_network function.
+- Conditional_network: Condition-specific network object containing network data for experimental and control groups, generated by the run_conditional_network function.
 - Conditional_multiplexnetwork: Multiplex network object; input this when performing differential network analysis using a multiplex network object, generated by the run_conditional_multiplexnetwork function.
 - edge_FC_threshold: Edge fold change threshold for filtering edges with significantly changed correlation strength, default: 1.2.
 - edge_p_threshold: Edge significance p-value threshold for statistical testing, default: 0.05.
@@ -577,7 +559,7 @@ network_show(
   
   #### 2.6.1 Perform Differential Network Analysis using Conditional Network Object
   
-  ```R
+```R
 # Create example network data
 data("differential_network_result")
 Conditional_network = differential_network_result@Conditional_network
@@ -638,7 +620,7 @@ network_show(
 
 **Main Parameter Description:**
   
-  - annotation_table_select: Data frame or list containing feature annotations, must include a KEGG.ID column.
+- annotation_table_select: Data frame or list containing feature annotations, must include a KEGG.ID column.
 - species: Species abbreviation (e.g., "hsa" for human, "mmu" for mouse).
 - nCores: Number of cores for parallel computation.
 - omics_name: Omics type (e.g., c("proteomics","metabolomics")); typically used only in multi-omics analysis; when setting this parameter, the annotation data must include an omics_name column.
@@ -649,7 +631,7 @@ network_show(
 
 **Analysis Features:**
   
-  - Multi-omics Integration: Automatically identifies and integrates enrichment results from different omics types (metabolomics, genomics, etc.).
+- Multi-omics Integration: Automatically identifies and integrates enrichment results from different omics types (metabolomics, genomics, etc.).
 - Parallel Computing: Supports multi-core parallel processing to improve efficiency for large-scale data analysis.
 - Automatic Database Management: Automatically downloads and manages KEGG database mapping files.
 - Flexible Input: Supports two input formats: single network node list and subnetwork node list.
@@ -712,7 +694,7 @@ network_show(
 
 **Main Parameter Description:**
   
-  - Differential_network: Differential network object, generated by the run_diff_network function.
+- Differential_network: Differential network object, generated by the run_diff_network function.
 - species: Species abbreviation (e.g., "hsa" for human, "mmu" for mouse).
 - nCores: Number of CPU cores for parallel computation.
 - omics_name: Omics type (e.g., c("proteomics","metabolomics")); typically used only in multi-omics analysis; when setting this parameter, the annotation data must include an omics_name column.
@@ -722,7 +704,7 @@ network_show(
 
 **Usage Example:**
   
-  ```R
+```R
 data("differential_network_result")
 Differential_network = differential_network_result@Differential_network
 
@@ -746,7 +728,7 @@ network_show(Network = Enrichment, plot_type = 'enrichment')
 
 **Main Parameter Description:**
   
-  - Differential_subnetwork: Differential subnetwork object, generated by the run_diff_network function.
+- Differential_subnetwork: Differential subnetwork object, generated by the run_diff_network function.
 - species: Species abbreviation (e.g., "hsa" for human, "mmu" for mouse).
 - nCores: Number of CPU cores for parallel computation.
 - omics_name: Omics type (e.g., c("proteomics","metabolomics")); typically used only in multi-omics analysis; when setting this parameter, the annotation data must include an omics_name column.
@@ -756,7 +738,7 @@ network_show(Network = Enrichment, plot_type = 'enrichment')
 
 **Usage Example:**
   
-  ```R
+```R
 Differential_subnetwork = differential_network_result@Differential_subnetwork
 
 DiffSubnet_Enrichment <- run_diffsubnet_enrichment(
@@ -787,7 +769,7 @@ network_show(
 
 **Main Parameter Description:**
   
-  - Network: Network analysis result object (e.g., Stable_SubNetwork, StableNetwork, etc.).
+- Network: Network analysis result object (e.g., Stable_SubNetwork, StableNetwork, etc.).
 - stable_num: Number of bootstrap networks to display in the stability test.
 - richfactor_threshold: Enrichment analysis rich factor threshold, default 0.
 - R_threshold: Default 0.3.
@@ -800,20 +782,20 @@ network_show(
 **Saved Content:**
   Depending on the network analysis type, the function automatically saves the following content:
   
-  **Stable_SubNetwork Type Saved Content:**
-  - Stability Test Results: Bootstrap network images and node/edge data files.
+**Stable_SubNetwork Type Saved Content:**
+- Stability Test Results: Bootstrap network images and node/edge data files.
 - Overall Network Analysis: Stable correlation network images, enrichment analysis bubble charts, and related data files.
 - Network Clustering Analysis: Clustered network images and annotation data files.
 - Subnetwork Analysis: Images for each subnetwork, topological analysis results (centrality analysis), and - enrichment analysis results.
 
 **Stable_DifferentialNetwork Type Saved Content:**
-  - Stability Test Results: Bootstrap network images and data for experimental and control groups.
+- Stability Test Results: Bootstrap network images and data for experimental and control groups.
 - Differential Network Analysis: Differential network images, node/edge data files, and enrichment results.
 - Differential Clustering Analysis: Differential clustering network images and data files.
 - Differential Subnetwork Analysis: Images and enrichment analysis results for each differential subnetwork.
 
 **Stable_MultiplexNetwork Type Saved Content:**
-  - Interaction Network Analysis: Protein-protein interaction network images and data files.
+- Interaction Network Analysis: Protein-protein interaction network images and data files.
 - Stability Test: Bootstrap network results for experimental and control groups.
 - Correlation Networks: Overall correlation networks for experimental and control groups.
 - Differential Multiplex Network Analysis: Multiplex differential network images, data, and enrichment results.
@@ -822,7 +804,7 @@ network_show(
 
 **Usage Example:**
   
-  ```R
+```R
 # Save stable subnetwork analysis results
 data("stable_subnetwork_result")
 pipline_save(stable_subnetwork_result)
@@ -845,7 +827,7 @@ pipline_save(multiplex_network_result)
 
 **Main Parameter Description:**
   
-  - Network: Network analysis result object (e.g., Stable_SubNetwork, StableNetwork, etc.).
+- Network: Network analysis result object (e.g., Stable_SubNetwork, StableNetwork, etc.).
 - plot_type: Visualization type, including: "stable_test" (stability test), "overall_network" (overall network), "sub_network" (subnetwork), "enrichment" (enrichment analysis), etc.
 
 **Usage Example:**
