@@ -172,6 +172,9 @@ pipline_save(
 #### 1.2.2 Partial Result Display
 
 ```R
+# read data
+diffnet_result=readRDS("differential_network_result.rds")
+
 # Conditional differential network
 diff_net_top_plot<-network_show(Network=diffnet_result,
   plot_type="differential_network",
@@ -186,6 +189,9 @@ diff_net_top_plot@plot
 ![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/pipline_save/2/Differential_network_1_T-vs-N-1.png)
 
 ```R
+# read data
+diffnet_result=readRDS("differential_network_result.rds")
+
 # Conditional differential subnetwork
 diff_subnet_top_plot<-network_show(Network=diffnet_result,
                                    plot_type="differential_subnetwork",
@@ -238,7 +244,7 @@ This function integrates molecular interaction information with expression corre
 # Load small example data
 data("protein_data")
 # Or read data
-metabolite_data=readRDS("protein_data.rds")
+protein_data=readRDS("protein_data.rds")
 
 # Run analysis (nBoots set to 5 for faster computation)
 multinet_result <- multiplex_network(
@@ -265,6 +271,9 @@ pipline_save(
 #### 1.3.2 Partial Result Display
 
 ```R
+# read data
+multinet_result=readRDS("multiplex_network_result.rds")
+
 # Conditional differential multiplex subnetwork
 diff_multisubnet_top_plot<-network_show(Network=multinet_result,
                                         plot_type="differential_network",node_colortype="Log2FC",focus=c("all"),
@@ -296,6 +305,11 @@ diff_multisubnet_top_plot@plot
 # Create example network data
 data("stable_subnetwork_result")
 data("metabolite_data")
+
+# Or read data
+metabolite_data=readRDS("metabolite_data.rds")
+stable_subnetwork_result=readRDS("stable_subnetwork_result.rds")
+
 filter_table <- stable_subnetwork_result@PreCor@filter_table
 annotation_table<-metabolite_data$annotation_table
 
@@ -333,6 +347,10 @@ network_show(Network = StableNetwork, plot_type = 'overall_network', show_node_l
 ```R
 # Create example network data
 data("stable_subnetwork_result")
+
+# Or read data
+stable_subnetwork_result=readRDS("stable_subnetwork_result.rds")
+
 nodes <- stable_subnetwork_result@StableNetwork@bootnet_result_filter@bootnet_node
 edges <- stable_subnetwork_result@StableNetwork@bootnet_result_filter@bootnet_edge
 
@@ -426,6 +444,11 @@ network_show(
   ```R
 data("protein_data")
 data("multiplex_network_result")
+
+# Or read data
+protein_data=readRDS("protein_data.rds")
+multiplex_network_result=readRDS("multiplex_network_result.rds")
+
 interaction_data <- protein_data$Interaction_table
 diff_anno=multiplex_network_result@Diff_anno |>
   dplyr::filter(!(State %in% c("Non-significant","Non")))
@@ -466,6 +489,10 @@ network_show(
 ```R
 # Create example network data
 data("differential_network_result")
+
+# Or read data
+differential_network_result=readRDS("differential_network_result.rds")
+
 count_table = differential_network_result@PreData@count_table
 samplelist = differential_network_result@PreData@samplelist
 Diff_anno = differential_network_result@Diff_anno
@@ -524,6 +551,10 @@ network_show(
 ```R
 # Create example network data
 data("multiplex_network_result")
+
+# Or read data
+multiplex_network_result=readRDS("multiplex_network_result.rds")
+
 Interaction_network = multiplex_network_result@Interaction_network
 Conditional_network = multiplex_network_result@Conditional_network
 
@@ -580,6 +611,10 @@ network_show(
 ```R
 # Create example network data
 data("differential_network_result")
+
+# Or read data
+differential_network_result=readRDS("differential_network_result.rds")
+
 Conditional_network = differential_network_result@Conditional_network
 
 # Run differential network analysis
@@ -607,6 +642,10 @@ network_show(
 ```R
 # Create example network data
 data("multiplex_network_result")
+
+# Or read data
+multiplex_network_result=readRDS("multiplex_network_result.rds")
+
 Conditional_network = multiplex_network_result@Conditional_network
 Conditional_multiplexnetwork = multiplex_network_result@Conditional_multiplexnetwork
 
@@ -662,6 +701,10 @@ network_show(
 ```R
 # Create example network data
 data("stable_subnetwork_result")
+
+# Or read data
+stable_subnetwork_result=readRDS("stable_subnetwork_result.rds")
+
 subnetworks_nodes <- stable_subnetwork_result@StableNetwork@bootnet_result_filter@bootnet_node
 
 # Run enrichment analysis
@@ -682,6 +725,10 @@ network_show(Network = Enrichment, plot_type = 'enrichment')
 ```R
 # Create example network data
 data("stable_subnetwork_result")
+
+# Or read data
+stable_subnetwork_result=readRDS("stable_subnetwork_result.rds")
+
 subnetworks_nodes <- lapply(
   stable_subnetwork_result@SubNetwork@subnetworks, 
   function(subnet) {
@@ -725,6 +772,10 @@ network_show(
   
 ```R
 data("differential_network_result")
+
+# Or read data
+differential_network_result=readRDS("differential_network_result.rds")
+
 Differential_network = differential_network_result@Differential_network
 
 Enrichment <- run_diff_enrichment(
