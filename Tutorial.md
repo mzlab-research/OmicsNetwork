@@ -172,6 +172,20 @@ pipline_save(
 #### 1.2.2 Partial Result Display
 
 ```R
+# Conditional differential network
+diff_net_top_plot<-network_show(Network=diffnet_result,
+  plot_type="differential_network",
+  node_colortype="Log2FC",focus=c("all"),
+  show_edge_legend = TRUE,show_node_legend = TRUE,
+  show_node_name = FALSE,node_size=5,node_name_size=3
+ )
+
+diff_net_top_plot@plot
+```
+
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/Tutorial_plot/pipline_save/2/Differential_network_1_T-vs-N-1.png)
+
+```R
 # Conditional differential subnetwork
 diff_subnet_top_plot<-network_show(Network=diffnet_result,
                                    plot_type="differential_subnetwork",
