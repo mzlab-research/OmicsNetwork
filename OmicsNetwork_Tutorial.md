@@ -426,7 +426,7 @@ network_show(
 )
 ```
 
-![](https://github.com/mzlab-research/OmicsNetwork/blob/main/OmicsNetwork_Plot/run_interaction_table_T-vs-N.png)
+![](https://github.com/mzlab-research/OmicsNetwork/blob/main/OmicsNetwork_Plot/run_interaction_network_T-vs-N.png)
 
 #### 2.3.2 General Molecular Interaction Network Construction - run_interaction_network Function
 
