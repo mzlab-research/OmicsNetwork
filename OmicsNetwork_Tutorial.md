@@ -277,7 +277,7 @@ multinet_result=readRDS("multiplex_network_result.rds")
 # Conditional differential multiplex subnetwork
 diff_multisubnet_top_plot<-network_show(Network=multinet_result,
                                         plot_type="differential_network",node_colortype="Log2FC",focus=c("all"),
-                                        subnetwork_name = c("subnet_1"),show_edge_legend = TRUE,show_node_legend = TRUE,
+                                        show_edge_legend = TRUE,show_node_legend = TRUE,
                                         show_node_name = TRUE,node_size=5,node_name_size=3, palette_style = "morandi")
 
 diff_multisubnet_top_plot@plot
